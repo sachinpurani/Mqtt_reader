@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto
+    ports:
+      - "1884:1884"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+# mqtt-reader:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: mqtt-reader
+#     depends_on:
+#       - mqtt-broker
+#     network_mode: "host"
